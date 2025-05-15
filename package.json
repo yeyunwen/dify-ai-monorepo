@@ -1,0 +1,39 @@
+{
+  "name": "dify-ai-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write \"{dify-sdk,server}/src/**/*.ts\"",
+    "format:check": "prettier --check \"{dify-sdk,server}/src/**/*.ts\"",
+    "lint": "eslint \"{dify-sdk,server}/src/**/*.ts\" --fix",
+    "lint:check": "eslint \"{dify-sdk,server}/src/**/*.ts\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.5",
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "picocolors": "^1.1.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
+  }
+}

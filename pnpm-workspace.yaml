@@ -1,0 +1,4 @@
+packages:
+  - "dify-sdk"
+  - "server"
+  - "miniprogram/*"
