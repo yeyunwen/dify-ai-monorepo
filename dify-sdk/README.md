@@ -45,28 +45,42 @@ console.log(response.data);
 ```typescript
 import { ChatClient } from 'dify-sdk';
 
-const client = new ChatClient('你的_API_KEY');
+const client = new ChatClient('YOU_API_KEY', 'YOU_BASE_URL');
 
 // 使用流式响应
-await client.createChatMessage(
+const resp =  await client.createChatMessage(
   {
     inputs: {},
     query: '你好，请介绍一下你自己',
     user: 'user_123',
     response_mode: 'streaming',
   },
-  {
-    onMessage: (message) => {
-      console.log('收到消息:', message);
-    },
-    onError: (error) => {
-      console.error('发生错误:', error);
-    },
-    onComplete: () => {
-      console.log('流式响应完成');
-    },
-  },
 );
+
+export type EventType =
+  | 'workflow_started'
+  | 'workflow_finished'
+  | 'node_started'
+  | 'node_finished'
+  | 'message'
+  | 'message_end'
+  | 'tts_message'
+  | 'tts_message_end';
+
+resp.onMessage = (message) => {
+  console.log('message', message)
+}
+resp.onNodeStarted = (message) => {
+  console.log('message', message)
+}
+// or chain
+resp
+  .onMessageEnd = (message) => {
+    console.log('message', message)
+  }
+  .onWorkflowStarted = (message) => {
+    console.log('message', message)
+  }
 ```
 
 ### 文件上传
@@ -85,7 +99,7 @@ const response = await client.fileUpload(formData);
 const fileId = response.data.id;
 
 // 在聊天消息中使用文件
-const chatClient = new ChatClient('你的_API_KEY');
+const chatClient = new ChatClient('YOU_API_KEY', 'YOU_BASE_URL');
 await chatClient.createChatMessage({
   inputs: {},
   query: '请分析这个文件的内容',
@@ -93,13 +107,6 @@ await chatClient.createChatMessage({
   files: [fileId],
 });
 ```
-
-## 可用客户端
-
-- `DifyClient`: 基础客户端，提供通用方法
-- `ChatClient`: 聊天型应用客户端
-- `CompletionClient`: 完成型应用客户端
-- `WorkflowClient`: 工作流客户端
 
 ## 许可证
 
