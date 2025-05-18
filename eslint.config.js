@@ -1,12 +1,27 @@
 // @ts-check
 import eslint from '@eslint/js';
+import eslintPrettier from 'eslint-plugin-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 /** @type {import('typescript-eslint').InfiniteDepthConfigWithExtends} */
+const commonConfig = {
+  extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
+  plugins: {
+    'simple-import-sort': simpleImportSort,
+    prettier: eslintPrettier,
+  },
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+    'simple-import-sort/imports': 'error',
+    'prettier/prettier': 'error',
+  },
+};
+
+/** @type {import('typescript-eslint').InfiniteDepthConfigWithExtends} */
 const scriptsConfig = {
   files: ['scripts/*.js'],
-  ...eslint.configs.recommended,
   languageOptions: {
     globals: {
       ...globals.node,
@@ -37,13 +52,6 @@ const serverConfig = {
 };
 
 /** @type {import('typescript-eslint').InfiniteDepthConfigWithExtends} */
-const commonConfig = {
-  rules: {
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
-};
-
-/** @type {import('typescript-eslint').InfiniteDepthConfigWithExtends} */
 const difyConfig = {
   files: ['dify-sdk/**/*.ts'],
   rules: {
@@ -52,7 +60,6 @@ const difyConfig = {
 };
 
 export default tseslint.config(
-  tseslint.configs.recommended,
   commonConfig,
   scriptsConfig,
   serverConfig,
