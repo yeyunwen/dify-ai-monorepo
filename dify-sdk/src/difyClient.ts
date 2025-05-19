@@ -1,109 +1,13 @@
 import { AxiosInstance } from 'axios';
 
+import {
+  AppMeta,
+  AppParameters,
+  FeedbackRating,
+  FileUploadResponse,
+  User,
+} from './type';
 import { createAxiosInstance } from './utils';
-
-export type FeedbackRating = 'like' | 'dislike';
-
-export interface User {}
-
-export type AppParameters = {
-  opening_statement: string;
-  suggested_questions: string[];
-  suggested_questions_after_answer: {
-    enable: boolean;
-  };
-  speech_to_text: {
-    enable: boolean;
-  };
-  text_to_speech: {
-    enable: boolean;
-    voice: string;
-    language: string;
-    autoPlay: 'disabled' | 'enabled';
-  };
-  retriever_resource: {
-    enable: boolean;
-  };
-  annotation_reply: {
-    enable: boolean;
-  };
-  user_input_form: [
-    {
-      'text-input': {
-        label: string;
-        variable: string;
-        required: boolean;
-        max_length: number;
-        default: '';
-      };
-    },
-    {
-      paragraph: {
-        label: string;
-        variable: string;
-        required: boolean;
-        default: '';
-      };
-    },
-    {
-      select: {
-        label: string;
-        variable: string;
-        required: boolean;
-        default: string;
-        options: string[];
-      };
-    },
-  ];
-  file_upload: {
-    image: {
-      enabled: boolean;
-      number_limits: number;
-      transfer_methods: string[];
-    };
-    allowed_file_types: string[]; // docs not found
-    allowed_file_extensions: string[]; // docs not found
-    allowed_file_upload_methods: string[]; // docs not found
-    number_limits: number; // docs not found
-    fileUploadConfig: {
-      file_size_limit: number;
-      batch_count_limit: number;
-      image_file_size_limit: number;
-      video_file_size_limit: number;
-      audio_file_size_limit: number;
-      workflow_file_upload_limit: number;
-    }; // docs not found
-  };
-  system_parameters: {
-    image_file_size_limit: number;
-    video_file_size_limit: number;
-    audio_file_size_limit: number;
-    file_size_limit: number;
-    workflow_file_upload_limit: number; // docs not found
-  };
-};
-
-export interface AppMeta {
-  tool_icons: {
-    [key: string]:
-      | string
-      | {
-          background: string;
-          content: string;
-        };
-  };
-}
-
-export interface FileUploadResponse {
-  id: string;
-  name: string;
-  size: number;
-  extension: string;
-  mime_type: string;
-  created_by: string;
-  created_at: number;
-  preview_url: string | null; // docs not found
-}
 
 /**
  * Dify API Base Class
