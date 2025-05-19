@@ -1,5 +1,6 @@
 import {
   ChatStreamHandler,
+  CompletionStreamHandler,
   WorkflowStreamHandler,
 } from './utils/streamResponse';
 
@@ -34,7 +35,7 @@ export type Status = 'running' | 'succeeded' | 'failed' | 'stopped';
 
 export type ResponseModeType = 'streaming' | 'blocking';
 
-export type FeedbackRating = 'like' | 'dislike';
+export type FeedbackRating = 'like' | 'dislike' | null;
 
 export interface User {}
 //#endregion
@@ -346,4 +347,32 @@ export type WorkflowLogResponse = {
   data: WorkflowLog[];
 };
 
+//#endregion
+
+//#region completionClient
+
+export type CreateCompletionMessageParams<
+  T extends ResponseModeType = 'blocking',
+> = {
+  inputs: {
+    query: string;
+    [key: string]: any;
+  };
+  user: User;
+  files?: VisionFile[];
+  response_mode?: T;
+};
+
+export type CompletionResponse<T extends ResponseModeType> =
+  T extends 'streaming'
+    ? CompletionStreamHandler
+    : CompletionCompletionResponse;
+
+export interface CompletionCompletionResponse {
+  event: 'message';
+  task_id: string;
+  id: string;
+  message_id: string;
+  conversation_id: string;
+}
 //#endregion
