@@ -18,8 +18,8 @@
     "emitDeclarationOnly": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "."
   },
-  "include": ["src"],
+  "include": ["src", "__tests__"],
   "exclude": ["node_modules", "dist"]
 }

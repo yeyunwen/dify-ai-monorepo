@@ -227,18 +227,20 @@ export type ConversationParams = {
   sort_by?: 'created_at' | '-created_at' | 'updated_at' | '-updated_at';
 };
 
+export type Conversations = {
+  id: string;
+  inputs: AnyObject;
+  introduction: string;
+  name: string;
+  status: 'normal' | string; // don't know what other statuses are there
+  created_at: number;
+  updated_at: number;
+};
+
 export type ConversationResponse = {
   limit: number;
   has_more: boolean;
-  data: {
-    id: string;
-    inputs: AnyObject;
-    introduction: string;
-    name: string;
-    status: 'normal' | string; // don't know what other statuses are there
-    created_at: number;
-    updated_at: number;
-  }[];
+  data: Conversations[];
 };
 
 export type ConversationMessageParams = {

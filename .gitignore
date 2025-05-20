@@ -5,3 +5,7 @@
 
 node_modules
 dist
+
+# test
+coverage
+tsconfig.vitest-temp.json
