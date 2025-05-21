@@ -1,7 +1,7 @@
 {
-  "name": "dify-sdk",
+  "name": "dify-node-sdk",
   "version": "0.0.1",
-  "description": "Dify SDK",
+  "description": "Dify Node SDK",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -17,12 +17,25 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeyunwen/dify-ai-monorepo.git",
+    "directory": "dify-node-sdk"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "dify",

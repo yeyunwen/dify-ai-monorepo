@@ -1,0 +1,58 @@
+name: 'test'
+
+on: workflow_call
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dify-sdk
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+
+      - run: pnpm install
+
+      - name: Run unit tests
+        run: pnpm test
+
+  lint-and-test-dts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dify-sdk
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+
+      - run: pnpm install
+
+      - name: Run eslint
+        run: pnpm run lint
+
+      - name: Run prettier
+        run: pnpm run format-check
+
+      - name: Run type declaration tests
+        run: pnpm run test-dts

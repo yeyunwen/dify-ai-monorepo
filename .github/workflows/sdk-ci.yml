@@ -1,0 +1,47 @@
+name: Dify Node SDK CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dify-sdk/**'
+      - '.github/workflows/sdk-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'dify-sdk/**'
+      - '.github/workflows/sdk-ci.yml'
+
+jobs:
+  test:
+    if: ${{ ! startsWith(github.event.head_commit.message, 'release:') && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) }}
+    uses: ./.github/workflows/sdk-test.yml
+
+  continuous-release:
+    if: github.repository == 'yeyunwen/dify-ai-monorepo'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dify-sdk
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Release
+        run: pnpx pkg-pr-new publish --compact --pnpm './dify-sdk'
