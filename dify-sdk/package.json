@@ -1,6 +1,6 @@
 {
   "name": "dify-node-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dify Node SDK",
   "type": "module",
   "main": "dist/index.cjs",
@@ -36,6 +36,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
+    "release": "node ../scripts/sdk-release.js",
     "changelog": "conventional-changelog -n ./changelog.config.js -i CHANGELOG.md -s"
   },
   "keywords": [
