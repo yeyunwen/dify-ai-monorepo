@@ -35,7 +35,8 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "changelog": "conventional-changelog -n ./changelog.config.js -i CHANGELOG.md -s"
   },
   "keywords": [
     "dify",
