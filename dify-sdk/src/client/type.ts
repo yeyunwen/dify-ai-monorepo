@@ -2,7 +2,7 @@ import {
   ChatStreamHandler,
   CompletionStreamHandler,
   WorkflowStreamHandler,
-} from './utils/streamResponse';
+} from '../utils/streamResponse';
 
 //#region common
 export interface Usage {

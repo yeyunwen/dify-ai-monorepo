@@ -1,4 +1,5 @@
-import { DifyClient } from './difyClient';
+import { ChatStreamHandler } from '../utils/streamResponse';
+import { DifyClient } from './dify';
 import {
   ChatCompletionResponse,
   ChatMessageParams,
@@ -14,7 +15,6 @@ import {
   SuggestedResponse,
   User,
 } from './type';
-import { ChatStreamHandler } from './utils/streamResponse';
 
 export class ChatClient extends DifyClient {
   async createChatMessage(

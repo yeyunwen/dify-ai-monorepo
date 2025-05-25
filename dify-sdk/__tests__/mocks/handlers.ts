@@ -1,6 +1,9 @@
 import { http, HttpResponse } from 'msw';
 
-import { ChatCompletionResponse, ResponseModeType } from '../../src/type';
+import {
+  ChatCompletionResponse,
+  ResponseModeType,
+} from '../../src/client/type';
 import { MessageEndEvent, MessageEvent } from '../../src/utils/streamResponse';
 
 // 模拟的 Dify API 响应

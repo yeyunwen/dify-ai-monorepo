@@ -1,11 +1,11 @@
-import { DifyClient } from './difyClient';
+import { CompletionStreamHandler } from '../utils/streamResponse';
+import { DifyClient } from './dify';
 import {
   CompletionResponse,
   CreateCompletionMessageParams,
   ResponseModeType,
   User,
 } from './type';
-import { CompletionStreamHandler } from './utils/streamResponse';
 
 export class CompletionClient extends DifyClient {
   async createCompletionMessage<T extends ResponseModeType = 'blocking'>(

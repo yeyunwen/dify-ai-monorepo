@@ -1,4 +1,5 @@
-import { DifyClient } from './difyClient';
+import { WorkflowStreamHandler } from '../utils/streamResponse';
+import { DifyClient } from './dify';
 import {
   GetLogsParams,
   ResponseModeType,
@@ -7,7 +8,6 @@ import {
   WorkflowLogResponse,
   WorkflowResponse,
 } from './type';
-import { WorkflowStreamHandler } from './utils/streamResponse';
 
 export class WorkflowClient extends DifyClient {
   async run<T extends ResponseModeType = 'blocking'>(

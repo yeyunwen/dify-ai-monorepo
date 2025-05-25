@@ -1,8 +1,8 @@
 import { beforeAll, describe, expect, it } from 'vitest';
 
-import { ChatClient } from '../../src/chatClient';
-import { DifyClient } from '../../src/difyClient';
-import { Conversations } from '../../src/type';
+import { ChatClient } from '../../src/client/chat';
+import { DifyClient } from '../../src/client/dify';
+import { Conversations } from '../../src/client/type';
 
 // 使用环境变量或默认值
 const API_KEY = process.env.DIFY_API_KEY || 'your-api-key';

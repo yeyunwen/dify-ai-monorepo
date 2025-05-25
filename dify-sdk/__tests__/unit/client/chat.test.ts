@@ -1,7 +1,7 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 
-import { ChatClient } from '../../src/chatClient';
-import { server } from '../mocks/server';
+import { ChatClient } from '../../../src/client/chat';
+import { server } from '../../mocks/server';
 
 // 开始模拟服务器
 beforeAll(() => server.listen());

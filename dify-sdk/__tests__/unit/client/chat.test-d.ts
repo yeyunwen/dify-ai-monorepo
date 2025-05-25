@@ -1,8 +1,8 @@
 import { expectTypeOf } from 'vitest';
 import { afterAll, afterEach, beforeAll, describe, it } from 'vitest';
 
-import { ChatClient } from '../../src/chatClient';
-import { ChatCompletionResponse } from '../../src/type';
+import { ChatClient } from '../../../src/client/chat';
+import { ChatCompletionResponse } from '../../../src/client/type';
 import {
   ChatStreamHandler,
   ErrorEvent,
@@ -12,8 +12,8 @@ import {
   MessageReplaceEvent,
   TTSMessageEndEvent,
   TTSMessageEvent,
-} from '../../src/utils';
-import { server } from '../mocks/server';
+} from '../../../src/utils';
+import { server } from '../../mocks/server';
 
 // 开始模拟服务器
 beforeAll(() => server.listen());

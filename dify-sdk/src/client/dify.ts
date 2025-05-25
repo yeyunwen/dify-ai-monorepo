@@ -1,5 +1,6 @@
 import { AxiosInstance } from 'axios';
 
+import { createAxiosInstance } from '../utils';
 import {
   AppMeta,
   AppParameters,
@@ -7,7 +8,6 @@ import {
   FileUploadResponse,
   User,
 } from './type';
-import { createAxiosInstance } from './utils';
 
 /**
  * Dify API Base Class

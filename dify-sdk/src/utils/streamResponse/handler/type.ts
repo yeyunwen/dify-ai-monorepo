@@ -1,4 +1,9 @@
-import { AnyObject, RetrieverResource, Status, Usage } from '../../../type';
+import {
+  AnyObject,
+  RetrieverResource,
+  Status,
+  Usage,
+} from '../../../client/type';
 
 export type EventType =
   | 'workflow_started'

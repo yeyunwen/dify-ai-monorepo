@@ -1,11 +1,11 @@
 import { Readable } from 'stream';
 import { describe, expect, it, vi } from 'vitest';
 
-import type {
-  MessageEndEvent,
-  MessageEvent,
-} from '../../src/utils/streamResponse';
-import { ChatStreamHandler } from '../../src/utils/streamResponse';
+import {
+  ChatStreamHandler,
+  type MessageEndEvent,
+  type MessageEvent,
+} from '../../../src/utils';
 
 // 模拟流式响应的事件数据
 const mockEvent: MessageEvent = {
