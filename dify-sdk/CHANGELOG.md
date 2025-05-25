@@ -1,3 +1,12 @@
+## [0.0.3](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.2...v0.0.3) (2025-05-25)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* fix format,lint script、and README.md ([47f1035](https://github.com/yeyunwen/dify-ai-monorepo/commit/47f10359dc2e9a7e0b33af3314f4aed62b15e14c))
+
+
+
 ## [0.0.2](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.1...v0.0.2) (2025-05-25)
 
 
