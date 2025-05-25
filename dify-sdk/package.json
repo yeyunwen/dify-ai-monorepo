@@ -31,10 +31,10 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format:check": "prettier --check .ts,.js",
     "typecheck": "tsc --noEmit",
     "release": "node ../scripts/sdk-release.js",
     "changelog": "conventional-changelog -n ./changelog.config.js -i CHANGELOG.md -s"

@@ -13,11 +13,11 @@
 ## 安装
 
 ```bash
-npm install dify-sdk
+npm install dify-node-sdk
 # 或
-yarn add dify-sdk
+yarn add dify-node-sdk
 # 或
-pnpm add dify-sdk
+pnpm add dify-node-sdk
 ```
 
 ## 使用方法
@@ -25,7 +25,7 @@ pnpm add dify-sdk
 ### 基本使用
 
 ```typescript
-import { ChatClient } from 'dify-sdk';
+import { ChatClient } from 'dify-node-sdk';
 
 // 创建客户端实例
 const client = new ChatClient('你的_API_KEY');
@@ -43,7 +43,7 @@ console.log(response.data);
 ### 流式响应处理
 
 ```typescript
-import { ChatClient } from 'dify-sdk';
+import { ChatClient } from 'dify-node-sdk';
 
 const client = new ChatClient('YOU_API_KEY', 'YOU_BASE_URL');
 
@@ -86,7 +86,7 @@ resp
 ### 文件上传
 
 ```typescript
-import { DifyClient } from 'dify-sdk';
+import { DifyClient } from 'dify-node-sdk';
 
 const client = new DifyClient('你的_API_KEY');
 
