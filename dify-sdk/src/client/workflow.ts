@@ -13,14 +13,24 @@ export class WorkflowClient extends DifyClient {
   async run<T extends ResponseModeType = 'blocking'>(
     data: RunWorkflowParams<T>,
   ): Promise<WorkflowResponse<T>> {
+    const defaultParams: Pick<
+      RunWorkflowParams<'blocking'>,
+      'response_mode' | 'inputs'
+    > = {
+      response_mode: 'blocking',
+      inputs: {},
+    };
+    const mergeParams = { ...defaultParams, ...data };
+
     const response = await this.request({
       method: 'POST',
       url: '/workflows/run',
-      data,
-      responseType: data.response_mode === 'streaming' ? 'stream' : 'json',
+      data: mergeParams,
+      responseType:
+        mergeParams.response_mode === 'streaming' ? 'stream' : 'json',
     });
 
-    if (data.response_mode === 'streaming') {
+    if (mergeParams.response_mode === 'streaming') {
       return new WorkflowStreamHandler(response.data) as any;
     }
 

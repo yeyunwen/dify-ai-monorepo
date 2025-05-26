@@ -1,7 +1,6 @@
 import { ChatStreamHandler } from '../utils/streamResponse';
 import { DifyClient } from './dify';
 import {
-  ChatCompletionResponse,
   ChatMessageParams,
   ChatResponseType,
   ConversationMessageParams,
@@ -17,23 +16,27 @@ import {
 } from './type';
 
 export class ChatClient extends DifyClient {
-  async createChatMessage(
-    params: ChatMessageParams<'streaming'>,
-  ): Promise<ChatStreamHandler>;
-  async createChatMessage(
-    params: ChatMessageParams<'blocking'>,
-  ): Promise<ChatCompletionResponse>;
   async createChatMessage<T extends ResponseModeType = 'blocking'>(
     params: ChatMessageParams<T>,
   ): Promise<ChatResponseType<T>> {
+    const defaultParams: Pick<
+      ChatMessageParams<'blocking'>,
+      'response_mode' | 'inputs'
+    > = {
+      response_mode: 'blocking',
+      inputs: {},
+    };
+    const mergeParams = { ...defaultParams, ...params };
+
     const response = await this.request({
       method: 'POST',
       url: '/chat-messages',
-      data: params,
-      responseType: params.response_mode === 'streaming' ? 'stream' : 'json',
+      data: mergeParams,
+      responseType:
+        mergeParams.response_mode === 'streaming' ? 'stream' : 'json',
     });
 
-    if (params.response_mode === 'streaming') {
+    if (mergeParams.response_mode === 'streaming') {
       return new ChatStreamHandler(response.data) as any;
     }
 

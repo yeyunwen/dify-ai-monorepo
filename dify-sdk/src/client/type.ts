@@ -155,7 +155,7 @@ export interface VisionFile {
 }
 
 export interface ChatMessageParams<T extends ResponseModeType = 'blocking'> {
-  inputs: AnyObject;
+  inputs?: AnyObject;
   query: string;
   user: string;
   conversation_id?: string;
@@ -281,9 +281,9 @@ export type MessageResponse = {
 
 //#region workflowClient
 export type RunWorkflowParams<T extends ResponseModeType = 'blocking'> = {
-  inputs: Record<string, any | VisionFile[]>;
+  inputs?: Record<string, any | VisionFile[]>;
   user: User;
-  response_mode: T;
+  response_mode?: T;
 };
 
 export interface WorkflowCompletionResponse {
