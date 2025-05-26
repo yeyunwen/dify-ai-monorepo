@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.3...v0.0.4) (2025-05-26)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复chatClient createMessage返回的类型问题，优化消息参数处理，合并默认参数 ([50038b5](https://github.com/yeyunwen/dify-ai-monorepo/commit/50038b54c6479c4be77e2b0dcdf626872ca69485))
+
+
+
 ## [0.0.3](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.2...v0.0.3) (2025-05-25)
 
 
