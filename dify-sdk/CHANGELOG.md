@@ -1,3 +1,12 @@
+## [0.0.5](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.4...v0.0.5) (2025-05-26)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 导出streamResponse handler中的类型 ([9d08ed4](https://github.com/yeyunwen/dify-ai-monorepo/commit/9d08ed45d3237bf886d69d6eb0d335222d5e5b3a))
+
+
+
 ## [0.0.4](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.3...v0.0.4) (2025-05-26)
 
 
