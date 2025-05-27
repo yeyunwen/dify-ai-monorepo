@@ -37,7 +37,11 @@ export type ResponseModeType = 'streaming' | 'blocking';
 
 export type FeedbackRating = 'like' | 'dislike' | null;
 
-export interface User {}
+/**
+ * 用户标识
+ * @description 不管是什么类型，最终都会被dify的 python代码 转换为字符串
+ */
+export type User<T = any> = T;
 //#endregion
 
 //#region difyClient
