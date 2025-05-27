@@ -1,6 +1,10 @@
 # Dify TypeScript SDK
 
-基于 TypeScript 的 Dify API 客户端，提供完善的类型定义和流式处理支持。
+✨ 基于 TypeScript 的 Dify API SDK，提供完善的类型定义和便捷的流式处理支持。
+
+📝 版本变更日志请看：[CHANGELOG.md](https://github.com/yeyunwen/dify-ai-monorepo/blob/main/dify-sdk/CHANGELOG.md)。
+
+👀 关于dify API 详细内容，可以查看官方文档：[访问 API](https://docs.dify.ai/api-reference/)。
 
 ## 特性
 
@@ -56,7 +60,7 @@ const resp =  await client.createChatMessage(
     response_mode: 'streaming',
   },
 );
-
+// 源码内的类型
 export type EventType =
   | 'workflow_started'
   | 'workflow_finished'
@@ -66,6 +70,7 @@ export type EventType =
   | 'message_end'
   | 'tts_message'
   | 'tts_message_end';
+  // ...
 
 resp.onMessage = (message) => {
   console.log('message', message)
