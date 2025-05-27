@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.6...v0.0.7) (2025-05-27)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 导出client相关的全部类型 ([90a74d1](https://github.com/yeyunwen/dify-ai-monorepo/commit/90a74d148dd85910444d24fec1b5854fdeefb115))
+
+
+
 ## [0.0.6](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.5...v0.0.6) (2025-05-27)
 
 
