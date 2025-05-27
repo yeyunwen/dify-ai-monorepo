@@ -73,6 +73,9 @@ resp.onMessage = (message) => {
 resp.onNodeStarted = (message) => {
   console.log('message', message)
 }
+// 注意：v0.0.6开始必须要调用start方法启动数据读取，防止在注册事件前的数据丢失
+resp.start()
+
 // or chain
 resp
   .onMessageEnd = (message) => {
@@ -80,7 +83,7 @@ resp
   }
   .onWorkflowStarted = (message) => {
     console.log('message', message)
-  }
+  }.start()
 ```
 
 ### 文件上传

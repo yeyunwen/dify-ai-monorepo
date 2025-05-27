@@ -80,6 +80,8 @@ describe('StreamResponse', () => {
       handler.onMessage(onMessageMock);
       handler.onMessageEnd(onMessageEndMock);
 
+      handler.start();
+
       // 模拟消息事件和消息结束事件
       mockStream.sendEvent(mockEvent).sendEvent(mockEndEvent).endStream();
 

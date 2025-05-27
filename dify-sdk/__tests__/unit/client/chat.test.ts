@@ -22,7 +22,6 @@ describe('ChatClient', () => {
       inputs: {},
       query: '测试问题',
       user: 'test-user',
-      response_mode: 'blocking',
     });
 
     expect(response).toHaveProperty('answer');
@@ -36,6 +35,8 @@ describe('ChatClient', () => {
       user: 'test-user',
       response_mode: 'streaming',
     });
+
+    response.start();
 
     // 验证它包含预期的方法
     expect(typeof response.onMessage).toBe('function');

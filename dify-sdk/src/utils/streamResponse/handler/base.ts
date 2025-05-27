@@ -24,31 +24,21 @@ export abstract class BaseStreamHandler<T extends BaseEvent<EventType>> {
   protected readonly errorHandlers: ErrorHandler[] = [];
   protected readonly completionHandlers: CompletionHandler[] = [];
   protected readonly stream: NodeJS.ReadableStream;
-  protected readonly timeout?: NodeJS.Timeout;
   protected isStopped = false;
+  protected isStart = false;
 
   /**
    * 创建流处理器
    * @param stream 响应流对象
-   * @param timeoutMs 可选的超时时间（毫秒）
    */
-  constructor(stream: NodeJS.ReadableStream, timeoutMs?: number) {
+  constructor(stream: NodeJS.ReadableStream) {
     this.stream = stream;
-
-    if (timeoutMs) {
-      this.timeout = setTimeout(() => this.handleTimeout(), timeoutMs);
-    }
-
-    this.processStream();
   }
 
-  /**
-   * 处理超时
-   */
-  protected handleTimeout(): void {
-    if (!this.isStopped) {
-      this.emitError(new Error('Response stream timeout'));
-    }
+  start() {
+    if (this.isStart) return;
+    this.isStart = true;
+    this.processStream();
   }
 
   /**
@@ -149,9 +139,6 @@ export abstract class BaseStreamHandler<T extends BaseEvent<EventType>> {
    */
   protected cleanUp(): void {
     this.isStopped = true;
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
   }
 
   /**
