@@ -1,3 +1,17 @@
+## [0.0.6](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.5...v0.0.6) (2025-05-27)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复流处理器可能出现数据丢失问题并要求手动启动 ([f948dd8](https://github.com/yeyunwen/dify-ai-monorepo/commit/f948dd85c47d9176d11f8b1a386badd42ac8580f))
+
+
+### BREAKING CHANGES
+
+* 现在必须手动调用.start()方法来开始处理流数据
+
+
+
 ## [0.0.5](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.4...v0.0.5) (2025-05-26)
 
 
