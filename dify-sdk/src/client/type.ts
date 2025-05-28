@@ -248,6 +248,7 @@ export type ConversationResponse = {
 };
 
 export type ConversationMessageParams = {
+  user: User;
   conversation_id: string;
   last_id?: string;
   /** int_range(1, 100), default 20 */
@@ -276,7 +277,7 @@ export type Message = {
   status: 'normal' | string; // don't know what other statuses are there
 };
 
-export type MessageResponse = {
+export type ConversationMessageResponse = {
   limit: number;
   has_more: boolean;
   data: Message[];

@@ -4,10 +4,10 @@ import {
   ChatMessageParams,
   ChatResponseType,
   ConversationMessageParams,
+  ConversationMessageResponse,
   ConversationParams,
   ConversationResponse,
   DeleteConversationParams,
-  MessageResponse,
   RenameConversationParams,
   RenameConversationResponse,
   ResponseModeType,
@@ -77,7 +77,7 @@ export class ChatClient extends DifyClient {
   }
 
   getConversationMessages(params: ConversationMessageParams) {
-    return this.request<MessageResponse>({
+    return this.request<ConversationMessageResponse>({
       method: 'GET',
       url: `/messages`,
       params,
