@@ -1,3 +1,13 @@
+## [0.0.8](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.7...v0.0.8) (2025-05-29)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 优化 User 类型定义为 泛型默认 any ，最终都会被dify的 python代码 转换为字符串 ([f494c6d](https://github.com/yeyunwen/dify-ai-monorepo/commit/f494c6d46087b08343696586b9d96669724f573b))
+* 修复会话消息的入参user，并修改response类型的名称 ([f3b1b62](https://github.com/yeyunwen/dify-ai-monorepo/commit/f3b1b626392dfc307a8375145d2407fd889b46c5))
+
+
+
 ## [0.0.7](https://github.com/yeyunwen/dify-ai-monorepo/compare/v0.0.6...v0.0.7) (2025-05-27)
 
 
